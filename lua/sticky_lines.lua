@@ -22,6 +22,16 @@ local function set(index)
 end
 
 local function jump(index)
+	if index and not lines[index] then
+		print(string.format("No sticky line with label %s", index))
+		return
+	end
+
+	if not last then
+		print("No sticky lines set")
+		return
+	end
+
 	local sticky_number = index and index or last
 
 	local row, col = lines[sticky_number][0], lines[sticky_number][1]
