@@ -15,7 +15,7 @@ local function set(index)
 		sticky_number = tostring(num_lines)
 	end
 
-	print(string.format("Setting sticky %d at (%d, %d)", sticky_number, curr_line[1], curr_line[2]))
+	print(string.format("Setting sticky %s at (%d, %d)", sticky_number, curr_line[1], curr_line[2]))
 
 	lines[sticky_number] = { [0] = curr_line[1], [1] = curr_line[2] }
 	last = sticky_number
@@ -26,7 +26,7 @@ local function jump(index)
 
 	local row, col = lines[sticky_number][0], lines[sticky_number][1]
 
-	print(string.format("Jumping to stick %d at (%d, %d)", sticky_number, row, col))
+	print(string.format("Jumping to stick %s at (%d, %d)", sticky_number, row, col))
 
 	api.nvim_win_set_cursor(0, { row, col })
 end
