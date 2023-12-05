@@ -4,23 +4,8 @@ local M = {}
 local last = {}
 
 function M.new()
-	api.nvim_buf_set_keymap(
-		0,
-		"n",
-		"<leader>k",
-		"<Cmd>lua require('sticky_lines').set()<CR>",
-		{ ["desc"] = "Set Sticky Line" }
-	)
-
-	api.nvim_buf_set_keymap(
-		0,
-		"n",
-		"<leader>j",
-		"<Cmd>lua require('sticky_lines').jump()<CR>",
-		{ ["desc"] = "Set Sticky Line" }
-	)
+	vim.keymap.set("n", "<leader>k", "<Cmd>lua require('sticky_lines').set()<CR>", { silent = true })
 end
-
 function M.set()
 	local curr_line = api.nvim_win_get_cursor(0)
 
