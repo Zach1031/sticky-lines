@@ -5,7 +5,7 @@ local last = {}
 
 function M.new()
 	vim.keymap.set("n", "<leader>k", ":lua require('sticky_lines').set()<CR>", { silent = true })
-	vim.keymap.set("n", "<leader>j", "lua require('sticky_lines').jump()<CR>", { silent = true })
+	vim.keymap.set("n", "<leader>j", ":lua require('sticky_lines').jump()<CR>", { silent = true })
 end
 function M.set()
 	local curr_line = api.nvim_win_get_cursor(0)
